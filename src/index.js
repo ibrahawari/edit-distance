@@ -1,12 +1,16 @@
+import { Button } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <Button className="square" onClick={props.onClick}>
       {props.value}
-    </button>
+    </Button>
   );
 }
 
@@ -44,22 +48,44 @@ class Board extends React.Component {
     }
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        <Grid
+          container
+          justify="space-around"
+          alignItems="center"
+          className="status"
+        >
+          {status}
+        </Grid>
+        <Grid
+          container
+          justify="space-around"
+          alignItems="center"
+          className="board-row"
+        >
+          <Card>{this.renderSquare(0)}</Card>
+          <Card>{this.renderSquare(1)}</Card>
+          <Card>{this.renderSquare(2)}</Card>
+        </Grid>
+        <Grid
+          container
+          justify="space-around"
+          alignItems="center"
+          className="board-row"
+        >
+          <Card>{this.renderSquare(3)}</Card>
+          <Card>{this.renderSquare(4)}</Card>
+          <Card>{this.renderSquare(5)}</Card>
+        </Grid>
+        <Grid
+          container
+          justify="space-around"
+          alignItems="center"
+          className="board-row"
+        >
+          <Card>{this.renderSquare(6)}</Card>
+          <Card>{this.renderSquare(7)}</Card>
+          <Card>{this.renderSquare(8)}</Card>
+        </Grid>
       </div>
     );
   }
@@ -101,4 +127,13 @@ function calculateWinner(squares) {
   return null;
 }
 
-ReactDOM.render(<Game />, document.getElementById("root"));
+function MyApp() {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Game />
+    </React.Fragment>
+  );
+}
+
+ReactDOM.render(<MyApp />, document.getElementById("root"));
