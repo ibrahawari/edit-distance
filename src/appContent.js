@@ -1,5 +1,6 @@
 import React from "react";
 import { editDistance } from "./utils/editDistance";
+import * as textFields from "./textFields";
 
 export default class AppContent extends React.Component {
   constructor() {
@@ -7,6 +8,7 @@ export default class AppContent extends React.Component {
     console.log(editDistance("sitting", "kitten"));
   }
   render() {
-    return null;
+    const TextFields = textFields.default;
+    return (<TextFields />);
   }
 }
