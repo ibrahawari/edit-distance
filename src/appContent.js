@@ -1,14 +1,19 @@
 import React from "react";
-import { editDistance } from "./utils/editDistance";
+//import { editDistance } from "./utils/editDistance";
 import * as textFields from "./textFields";
 
 export default class AppContent extends React.Component {
-  constructor() {
-    super();
-    console.log(editDistance("sitting", "kitten"));
-  }
+  state = {
+    firstString: "",
+    secondString: "",
+  };
+
+  handleChange = stateProp=> event => {
+    this.setState({ [stateProp]: event.target.value });
+  };
+
   render() {
     const TextFields = textFields.default;
-    return (<TextFields />);
+    return (<TextFields onChange={this.handleChange}/>);
   }
 }

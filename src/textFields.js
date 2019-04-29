@@ -22,14 +22,6 @@ const styles = theme => ({
 });
 
 class TextFields extends React.Component {
-  state = {
-    firstString: "",
-    secondString: "",
-  };
-
-  handleChange = stateProp=> event => {
-    this.setState({ [stateProp]: event.target.value });
-  };
 
   render() {
     const { classes } = this.props;
@@ -40,8 +32,8 @@ class TextFields extends React.Component {
           id="standard-name"
           label="First String"
           className={classes.textField}
-          value={this.state.firstString}
-          onChange={this.handleChange("firstString")}
+          value={this.props.firstString}
+          onChange={this.props.onChange("firstString")}
           margin="normal"
         />
 
@@ -49,8 +41,8 @@ class TextFields extends React.Component {
           id="standard-name"
           label="Second String"
           className={classes.textField}
-          value={this.state.secondString}
-          onChange={this.handleChange("secondString")}
+          value={this.props.secondString}
+          onChange={this.props.onChange("secondString")}
           margin="normal"
         />
       </form>
