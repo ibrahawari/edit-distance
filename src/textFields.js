@@ -6,7 +6,8 @@ import TextField from "@material-ui/core/TextField";
 const styles = theme => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    width: 400 + 4 * theme.spacing.unit
   },
   textField: {
     marginLeft: theme.spacing.unit,
