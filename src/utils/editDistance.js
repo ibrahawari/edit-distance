@@ -4,7 +4,7 @@
  * @param {*} s 
  * @param {*} t 
  */
-export function editDistance(s, t) {
+export function editDistanceMatrix(s, t) {
   const m = s.length;
   const n = t.length;
   const o = m + 1;
@@ -41,7 +41,7 @@ export function editDistance(s, t) {
       }
     }
   }
-  return d[m][n];
+  return d;
 }
 
 function createMatrix(o, p) {
