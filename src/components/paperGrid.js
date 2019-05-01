@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import { withStyles, MuiThemeProvider } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { createMuiTheme } from '@material-ui/core/styles';
-
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const dark = createMuiTheme({
   palette: {
-    type: 'dark',
+    type: "dark"
   }
 });
 
@@ -49,9 +48,9 @@ function createTable(classes, matrix, _firstString, _secondString) {
       children.push(
         <td>
           <MuiThemeProvider theme={dark}>
-          <Paper className={classes.root} elevation={1}>
-            <Typography variant="h6">{matrix[i][j]}</Typography>
-          </Paper>
+            <Paper className={classes.root} elevation={1}>
+              <Typography variant="h6">{matrix[i][j]}</Typography>
+            </Paper>
           </MuiThemeProvider>
         </td>
       );
