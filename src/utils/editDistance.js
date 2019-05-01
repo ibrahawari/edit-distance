@@ -1,8 +1,10 @@
+import createMatrix from "./createMatrix";
+
 /**
  * Calculate the Levenshtein Distance using the Wagner-Fischer algorithm
  * For more info: // https://en.wikipedia.org/wiki/Wagner–Fischer_algorithm
- * @param {*} s 
- * @param {*} t 
+ * @param {*} s
+ * @param {*} t
  */
 export function editDistanceMatrix(s, t) {
   const m = s.length;
@@ -42,12 +44,4 @@ export function editDistanceMatrix(s, t) {
     }
   }
   return d;
-}
-
-function createMatrix(o, p) {
-  const result = new Array(o);
-  for (let i = 0; i < result.length; i++) {
-    result[i] = new Array(p);
-  }
-  return result;
 }
