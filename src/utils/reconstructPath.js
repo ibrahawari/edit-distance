@@ -34,14 +34,14 @@ function reconstructPathAlgorithm(i, j, matrix, recordings) {
     }
   } else {
     let prevValue = matrix[iPrev][jPrev];
-    if (prevValue === matrix[i][j]) {
-      recordings[i][j] = 1;
-      return reconstructPathAlgorithm(iPrev, jPrev, matrix, recordings); // move di
-    }
     let leftValue = matrix[i][jPrev];
     let upValue = matrix[iPrev][j];
 
     let min = Math.min(upValue, leftValue, prevValue);
+    if (min === matrix[i][j]) {
+      recordings[i][j] = 1;
+      return reconstructPathAlgorithm(iPrev, jPrev, matrix, recordings); // move di
+    }
     if (min === upValue) {
       recordings[i][j] = 1;
       return reconstructPathAlgorithm(iPrev, j, matrix, recordings); // move up

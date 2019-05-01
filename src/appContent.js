@@ -21,11 +21,11 @@ export default class AppContent extends React.Component {
     const PaperSheet = paperSheet.default;
 
     const d = editDistanceMatrix(this.state.firstString, this.state.secondString); console.log(d)
-    const e = reconstructPath(d); console.log(e); // really bad
+    const e = reconstructPath(d); // really bad
     return (
       <div>
         <TextFields onChange={this.handleChange} />
-        <PaperGrid matrix={d} firstString={this.state.firstString} secondString={this.state.secondString}/>
+        <PaperGrid matrix={d} path = {e} firstString={this.state.firstString} secondString={this.state.secondString}/>
         <PaperSheet result={d[this.state.firstString.length][this.state.secondString.length]}/>
       </div>
     );

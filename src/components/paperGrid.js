@@ -11,6 +11,12 @@ const dark = createMuiTheme({
   }
 });
 
+const light = createMuiTheme({
+  palette: {
+    type: "light"
+  }
+});
+
 const styles = theme => ({
   root: {
     textAlign: "center",
@@ -33,6 +39,7 @@ function PaperGrid(props) {
       {createTable(
         classes,
         props.matrix,
+        props.path,
         props.firstString,
         props.secondString
       )}
@@ -40,14 +47,14 @@ function PaperGrid(props) {
   );
 }
 
-function createTable(classes, matrix, _firstString, _secondString) {
+function createTable(classes, matrix, path, _firstString, _secondString) {
   let table = [];
   for (let i = 0; i < matrix.length; i++) {
     let children = [];
     for (let j = 0; j < matrix[0].length; j++) {
       children.push(
         <td>
-          <MuiThemeProvider theme={dark}>
+          <MuiThemeProvider theme={path[i][j] === 1 ? dark : light}>
             <Paper className={classes.root} elevation={1}>
               <Typography variant="h6">{matrix[i][j]}</Typography>
             </Paper>
